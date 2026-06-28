@@ -1,0 +1,533 @@
+/* Cinematic Dark Gallery Background */
+.gallery-hero-bg {
+    background-color: #020305;
+    /* Pure cinematic black */
+    position: relative;
+    overflow: hidden;
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+        sans-serif;
+}
+
+/* Ambient Studio Lighting (Glow) */
+.studio-glow-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 60vw;
+    max-width: 800px;
+    max-height: 800px;
+    background: radial-gradient(
+        circle,
+        rgba(212, 175, 55, 0.15) 0%,
+        rgba(59, 130, 246, 0.05) 40%,
+        transparent 70%
+    );
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/*
+         =======================================
+           3D FLOATING PHOTO FRAMES (BACKGROUND)
+         =======================================
+        */
+.floating-frame {
+    position: absolute;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    z-index: 1;
+    opacity: 0.4;
+    transition: all 0.5s ease;
+}
+
+/* Left Distant Frame (Blurred) */
+.frame-1 {
+    width: 250px;
+    height: 350px;
+    top: 10%;
+    left: 5%;
+    transform: perspective(1000px) rotateY(15deg) rotateZ(-5deg);
+    filter: blur(8px) brightness(0.7);
+    animation: floatSlow 12s ease-in-out infinite alternate;
+    background-image: url("https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80");
+}
+
+/* Right Distant Frame (Blurred) */
+.frame-2 {
+    width: 300px;
+    height: 200px;
+    bottom: 15%;
+    right: 5%;
+    transform: perspective(1000px) rotateY(-20deg) rotateZ(8deg);
+    filter: blur(10px) brightness(0.6);
+    animation: floatSlow 15s ease-in-out infinite alternate-reverse;
+    background-image: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80");
+}
+
+/* Top Right Small Frame */
+.frame-3 {
+    width: 180px;
+    height: 180px;
+    top: 15%;
+    right: 20%;
+    transform: perspective(1000px) rotateX(15deg) rotateY(-10deg);
+    filter: blur(5px) brightness(0.5);
+    animation: floatSlow 10s ease-in-out infinite alternate;
+    background-image: url("https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80");
+}
+
+@keyframes floatSlow {
+    0% {
+        transform: translateY(0) perspective(1000px) rotateY(15deg);
+    }
+
+    100% {
+        transform: translateY(-30px) perspective(1000px) rotateY(20deg);
+    }
+}
+
+/*
+         =======================================
+           CENTER CONTENT (FROSTED GLASS TEXT)
+         =======================================
+        */
+.hero-content-wrapper {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+}
+
+.gallery-badge-text {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #d4af37;
+}
+
+.gallery-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .gallery-title {
+        font-size: 3rem;
+    }
+}
+
+.gallery-title-gradient {
+    background: linear-gradient(to right, #ffffff, #d4af37, #9ca3af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: textShine 6s linear infinite;
+}
+
+@keyframes textShine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.gallery-subtitle {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    font-weight: 500;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+/* Elegant Mouse Scroll Indicator */
+.scroll-indicator-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator-box:hover {
+    opacity: 1;
+}
+
+.mouse-shape {
+    width: 24px;
+    height: 36px;
+    border: 2px solid #64748b;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.mouse-wheel {
+    width: 4px;
+    height: 6px;
+    background: #d4af37;
+    border-radius: 2px;
+    margin-top: 6px;
+    animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+}
+
+.scroll-text {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #64748b;
+}
+
+/* Absolute Dark Cinematic Background */
+.premium-gallery-bg {
+    background-color: #020305;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Ambient Background Glow */
+.premium-gallery-bg::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 500px;
+    background: radial-gradient(
+        ellipse,
+        rgba(212, 175, 55, 0.05) 0%,
+        transparent 60%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/*
+         =======================================
+           CSS FLUID MASONRY GRID
+         =======================================
+        */
+.masonry-container {
+    column-count: 1;
+    column-gap: 1.5rem;
+    padding-top: 2rem;
+}
+
+@media (min-width: 640px) {
+    .masonry-container {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .masonry-container {
+        column-count: 3;
+    }
+}
+
+.luxe-gallery-light {
+    background-color: #fafbfc;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.luxe-gallery-light::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+        rgba(10, 25, 47, 0.03) 1px,
+        transparent 1px
+    );
+    background-size: 40px 40px;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Fluid Masonry Grid */
+.luxe-masonry-grid {
+    column-count: 1;
+    column-gap: 2rem;
+    padding-top: 2rem;
+}
+
+@media (min-width: 640px) {
+    .luxe-masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .luxe-masonry-grid {
+        column-count: 3;
+    }
+}
+
+/* Gallery Art Frame */
+.art-frame {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #ffffff;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.02),
+        0 10px 15px -3px rgba(0, 0, 0, 0.03),
+        0 20px 30px -10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(10, 25, 47, 0.03);
+    transform: translateZ(0);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.art-frame:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 20px 40px -10px rgba(10, 25, 47, 0.1),
+        0 0 0 1px rgba(212, 175, 55, 0.15);
+}
+
+.art-frame img {
+    width: 100%;
+    display: block;
+    height: auto;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(1.02);
+}
+
+.art-frame:hover img {
+    transform: scale(1.08);
+}
+
+/* Frosted Glass Caption Panel */
+.art-caption-glass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    background: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.95) 20%,
+        rgba(255, 255, 255, 0.7) 70%,
+        transparent 100%
+    );
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.art-frame:hover .art-caption-glass {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.caption-category {
+    color: #b89025;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.4rem;
+}
+
+.caption-title {
+    color: #0a192f;
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
+
+/* Zoom Icon */
+.art-zoom-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a192f;
+    opacity: 0;
+    z-index: 3;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.art-frame:hover .art-zoom-btn {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    padding: 6px;
+}
+
+/*
+             =======================================
+               ULTRA PREMIUM LIGHTBOX MODAL
+             =======================================
+            */
+.luxe-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.luxe-lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Dark Frosted Background */
+.lightbox-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 7, 10, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    cursor: zoom-out;
+}
+
+/* Close Button */
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+    background: #ffffff;
+    color: #0a192f;
+    transform: rotate(90deg);
+}
+
+/* Image Container */
+.lightbox-content {
+    position: relative;
+    z-index: 5;
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxe-lightbox.active .lightbox-content {
+    transform: scale(1) translateY(0);
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 16px;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    object-fit: contain;
+}
+
+/* Modal Caption */
+.lightbox-caption {
+    margin-top: 1.5rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.lb-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+}
+
+.lb-category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}

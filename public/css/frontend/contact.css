@@ -1,0 +1,1105 @@
+/* Ultra Premium Contact Hero Background */
+.contact-hero-bg {
+    background-color: #02040a;
+    /* Deepest Navy/Black */
+    position: relative;
+    overflow: hidden;
+    /* Subtle radial vignette */
+    background-image: radial-gradient(
+        circle at 50% 100%,
+        rgba(10, 25, 47, 0.8) 0%,
+        transparent 60%
+    );
+}
+
+/* Animated Tech Grid */
+.contact-hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        black 40%,
+        transparent 80%
+    );
+    z-index: 0;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(60px);
+    }
+}
+
+/* 3D Holographic Abstract Rings Behind Text */
+.hologram-ring-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.holo-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    box-shadow:
+        0 0 40px rgba(59, 130, 246, 0.05),
+        inset 0 0 40px rgba(59, 130, 246, 0.05);
+}
+
+.holo-ring-1 {
+    animation: spin-3d-1 12s linear infinite;
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+.holo-ring-2 {
+    animation: spin-3d-2 16s linear infinite;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+}
+
+.holo-ring-3 {
+    animation: spin-3d-3 20s linear infinite;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    border-color: rgba(212, 175, 55, 0.1);
+}
+
+@keyframes spin-3d-1 {
+    0% {
+        transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(60deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+@keyframes spin-3d-2 {
+    0% {
+        transform: rotateX(40deg) rotateY(360deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(40deg) rotateY(0deg) rotateZ(360deg);
+    }
+}
+
+@keyframes spin-3d-3 {
+    0% {
+        transform: rotateX(70deg) rotateY(0deg) rotateZ(360deg);
+    }
+
+    100% {
+        transform: rotateX(70deg) rotateY(360deg) rotateZ(0deg);
+    }
+}
+
+/* Live Status Badge */
+.live-status-badge {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Giant Title Typography */
+.title-contact-glow {
+    background: linear-gradient(to right, #ffffff, #e2e8f0, #d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shineContact 5s linear infinite;
+}
+
+@keyframes shineContact {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Scroll Down Arrow Bounce */
+.scroll-arrow-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d4af37;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    animation: bounceFloat 2s infinite;
+}
+
+.scroll-arrow-btn:hover {
+    background: #d4af37;
+    color: #02040a;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    border-color: #d4af37;
+}
+
+@keyframes bounceFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Absolute Clean & Luxurious Light Background */
+.luxe-contact-bg {
+    background-color: #fafbfc; /* Extremely soft, airy white */
+    position: relative;
+    z-index: 10;
+}
+
+/* Minimalist Dot Grid for Scale */
+.luxe-contact-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+        rgba(10, 25, 47, 0.04) 1px,
+        transparent 1px
+    );
+    background-size: 30px 30px;
+    opacity: 0.8;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* 
+     =======================================
+       THE ULTRA PREMIUM LUXE CARD 
+     =======================================
+    */
+.luxe-card-wrapper {
+    position: relative;
+    border-radius: 32px;
+    padding: 1px; /* Space for the gradient border */
+    background: transparent;
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 1;
+}
+
+/* The Beautiful Animated Gradient Border */
+.luxe-card-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 32px;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 25, 47, 0.05) 0%,
+        rgba(212, 175, 55, 0.05) 100%
+    );
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: -1;
+}
+
+/* Specific Card Border Colors on Hover */
+.luxe-wrap-phone:hover::before {
+    background: linear-gradient(135deg, #10b981, #d1fae5);
+}
+.luxe-wrap-email:hover::before {
+    background: linear-gradient(135deg, #3b82f6, #dbeafe);
+}
+.luxe-wrap-location:hover::before {
+    background: linear-gradient(135deg, #d4af37, #fdf0a6);
+}
+
+.luxe-card {
+    background: #ffffff;
+    border-radius: 31px; /* Slightly less than wrapper to fit inside */
+    padding: 3.5rem 2.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    /* Masterpiece Layered Soft Shadows */
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.02),
+        0 10px 15px -3px rgba(0, 0, 0, 0.03),
+        0 20px 25px -5px rgba(0, 0, 0, 0.04);
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Card Elevation on Hover */
+.luxe-card-wrapper:hover {
+    transform: translateY(-12px);
+}
+
+/* Enhanced Soft Hover Shadows */
+.luxe-wrap-phone:hover .luxe-card {
+    box-shadow:
+        0 20px 40px -10px rgba(16, 185, 129, 0.15),
+        0 0 20px rgba(16, 185, 129, 0.05);
+}
+.luxe-wrap-email:hover .luxe-card {
+    box-shadow:
+        0 20px 40px -10px rgba(59, 130, 246, 0.15),
+        0 0 20px rgba(59, 130, 246, 0.05);
+}
+.luxe-wrap-location:hover .luxe-card {
+    box-shadow:
+        0 20px 40px -10px rgba(212, 175, 55, 0.15),
+        0 0 20px rgba(212, 175, 55, 0.05);
+}
+
+/* Subtle Shine Sweep on Hover */
+.luxe-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: 0.7s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.luxe-card-wrapper:hover .luxe-card::after {
+    left: 150%;
+}
+
+/* 
+     =======================================
+       PREMIUM ICON DESIGN 
+     =======================================
+    */
+.luxe-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    background: #ffffff;
+    border: 1px solid rgba(10, 25, 47, 0.06);
+    box-shadow:
+        0 8px 16px rgba(0, 0, 0, 0.04),
+        inset 0 2px 4px rgba(255, 255, 255, 1);
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 2;
+}
+
+.luxe-wrap-phone .luxe-icon-container {
+    color: #10b981;
+}
+.luxe-wrap-email .luxe-icon-container {
+    color: #3b82f6;
+}
+.luxe-wrap-location .luxe-icon-container {
+    color: #d4af37;
+}
+
+/* Icon Inner Glow on Hover */
+.luxe-card-wrapper:hover .luxe-icon-container {
+    transform: scale(1.1) translateY(-5px);
+    border-color: transparent;
+    color: #ffffff;
+}
+
+.luxe-wrap-phone:hover .luxe-icon-container {
+    background: #10b981;
+    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+}
+.luxe-wrap-email:hover .luxe-icon-container {
+    background: #3b82f6;
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+}
+.luxe-wrap-location:hover .luxe-icon-container {
+    background: #d4af37;
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+}
+
+/* Typography */
+.luxe-title {
+    color: #94a3b8; /* Slate 400 */
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 0.75rem;
+    z-index: 2;
+}
+
+.luxe-value {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #0a192f;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.5px;
+    transition: color 0.4s ease;
+    z-index: 2;
+}
+
+.luxe-desc {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-medium: 500;
+    z-index: 2;
+}
+
+/* Elegant Bottom Arrow */
+.luxe-arrow {
+    margin-top: auto;
+    padding-top: 2rem;
+    color: #cbd5e1;
+    transition: all 0.4s ease;
+    z-index: 2;
+}
+
+.luxe-card-wrapper:hover .luxe-arrow {
+    transform: translateY(5px);
+}
+
+.luxe-wrap-phone:hover .luxe-arrow {
+    color: #10b981;
+}
+.luxe-wrap-email:hover .luxe-arrow {
+    color: #3b82f6;
+}
+.luxe-wrap-location:hover .luxe-arrow {
+    color: #d4af37;
+}
+
+/* Deep Luxury Dark Background */
+.illuminated-section-bg {
+    background-color: #030508;
+    /* Absolute deep obsidian */
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Ambient Display Glows behind the cards */
+.illuminated-section-bg::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.03) 0%,
+        transparent 70%
+    );
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/*
+         =======================================
+           PREMIUM DARK CARD STRUCTURE
+         =======================================
+        */
+.display-card {
+    background: #0a0c10;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 28px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.display-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.15);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(212, 175, 55, 0.05);
+}
+
+/*
+         =======================================
+           THE "LIGHT MAP" ILLUMINATED WINDOW
+         =======================================
+        */
+.map-bezel {
+    width: 100%;
+    height: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2.5rem;
+    /* The glow that frames the light map against the dark card */
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 10px 30px rgba(255, 255, 255, 0.03);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    background: #f8fafc;
+}
+
+.display-card:hover .map-bezel {
+    box-shadow:
+        0 0 0 1px rgba(212, 175, 55, 0.2),
+        0 15px 40px rgba(212, 175, 55, 0.08);
+}
+
+/* Original Light Map but with Premium Tuning */
+.light-map-iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    /* Slight opacity and contrast tweak so the white map isn't blinding on dark UI */
+    filter: contrast(1.05) saturate(0.85) opacity(0.9);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(1.02);
+}
+
+.display-card:hover .light-map-iframe {
+    /* Restores full vibrancy and zooms in smoothly on hover */
+    filter: contrast(1.1) saturate(1.1) opacity(1);
+    transform: scale(1.05);
+}
+
+/* Premium Tag on the Map */
+.map-tag {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    background: #ffffff;
+    color: #030508;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.map-tag-dot {
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+}
+
+/*
+         =======================================
+           CONTENT & TYPOGRAPHY
+         =======================================
+        */
+.card-content {
+    padding: 0 1rem 1rem 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.campus-title {
+    font-size: 2.2rem;
+    color: #ffffff;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.campus-title strong {
+    font-weight: 800;
+    color: transparent;
+    background: linear-gradient(to right, #ffffff, #9ca3af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.info-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d4af37;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+}
+
+.display-card:hover .info-icon {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+.info-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    color: #d4af37;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.3rem;
+}
+
+.info-value {
+    color: #d1d5db;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Premium Navigation Button */
+.btn-nav-premium {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1.15rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-nav-premium::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+}
+
+.display-card:hover .btn-nav-premium {
+    color: #030508;
+    border-color: #ffffff;
+}
+
+.display-card:hover .btn-nav-premium::before {
+    transform: translateX(100%);
+}
+
+.btn-nav-premium svg {
+    margin-left: 0.75rem;
+    transition: transform 0.4s ease;
+}
+
+.display-card:hover .btn-nav-premium svg {
+    transform: translateX(5px);
+}
+
+/* Absolute Clean Light Background */
+.faq-light-bg {
+    background-color: #fafbfc;
+    /* Premium airy white */
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Ambient Soft Glow in Background */
+.faq-ambient-glow {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(
+        circle,
+        rgba(212, 175, 55, 0.04) 0%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/*
+             =======================================
+               FAQ CARD ARCHITECTURE
+             =======================================
+            */
+.faq-card {
+    background: #ffffff;
+    border: 1px solid rgba(10, 25, 47, 0.04);
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.01),
+        0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+
+/* Left Accent Line */
+.faq-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #d4af37, #aa8416);
+    transform: scaleY(0);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover & Active States */
+.faq-card:hover {
+    border-color: rgba(10, 25, 47, 0.08);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.faq-card.active {
+    border-color: rgba(212, 175, 55, 0.2);
+    box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+.faq-card.active::before {
+    transform: scaleY(1);
+}
+
+/*
+             =======================================
+               FAQ BUTTON (QUESTION)
+             =======================================
+            */
+.faq-question-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq-question-text {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0a192f;
+    padding-right: 2rem;
+    transition: color 0.3s ease;
+}
+
+.faq-card.active .faq-question-text {
+    color: #d4af37;
+}
+
+/* The Animated Plus/Minus Icon */
+.faq-icon-wrap {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f8fafc;
+    border: 1px solid rgba(10, 25, 47, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.faq-icon-line {
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background-color: #0a192f;
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-icon-line.vertical {
+    transform: rotate(90deg);
+}
+
+/* Icon Interactions */
+.faq-card:hover .faq-icon-wrap {
+    background: #0a192f;
+    border-color: #0a192f;
+}
+
+.faq-card:hover .faq-icon-line {
+    background-color: #ffffff;
+}
+
+.faq-card.active .faq-icon-wrap {
+    background: #d4af37;
+    border-color: #d4af37;
+}
+
+.faq-card.active .faq-icon-line {
+    background-color: #ffffff;
+}
+
+/* Morph Plus to Minus */
+.faq-card.active .faq-icon-line.horizontal {
+    transform: rotate(180deg);
+}
+
+.faq-card.active .faq-icon-line.vertical {
+    transform: rotate(180deg);
+    opacity: 0;
+}
+
+/*
+             =======================================
+               THE MAGIC FLUID ANSWER CONTAINER
+             =======================================
+            */
+.faq-answer-container {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-card.active .faq-answer-container {
+    grid-template-rows: 1fr;
+}
+
+.faq-answer-content {
+    overflow: hidden;
+}
+
+.faq-answer-inner {
+    padding: 0 2rem 1.5rem 2rem;
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-card.active .faq-answer-inner {
+    opacity: 1;
+    transform: translateY(0);
+    /* Slight delay so height opens first, then text fades in */
+    transition-delay: 0.1s;
+}
+
+/* Sticky Sidebar Layout */
+.sticky-sidebar {
+    position: sticky;
+    top: 6rem;
+}
+
+/* Absolute Clean Background */
+.trust-banner-bg {
+    background-color: #fafbfc;
+    /* Seamless blend with previous light sections */
+    position: relative;
+    padding-bottom: 4rem;
+    /* Spacing before footer */
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+
+/* Subtle Ambient Gold Aura Behind the Banner */
+.trust-banner-bg::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1000px;
+    height: 100px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(212, 175, 55, 0.15) 0%,
+        transparent 70%
+    );
+    filter: blur(40px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/*
+         =======================================
+           THE FLOATING PEARL PILL (WOW FACTOR)
+         =======================================
+        */
+.pearl-trust-pill {
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 1px solid rgba(10, 25, 47, 0.05);
+    border-radius: 100px;
+    /* Perfect pill shape on desktop */
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* Masterpiece Neumorphic Shadow */
+    box-shadow:
+        0 10px 30px -10px rgba(10, 25, 47, 0.05),
+        0 20px 40px -20px rgba(212, 175, 55, 0.1),
+        inset 0 2px 5px rgba(255, 255, 255, 1);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 1024px) {
+    .pearl-trust-pill {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .pearl-trust-pill {
+        border-radius: 32px;
+        /* Rounded rectangle on mobile */
+        padding: 2.5rem 2rem;
+    }
+}
+
+/* The Metallic Shimmer Sweep on Hover */
+.pearl-trust-pill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: all 0.8s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.pearl-trust-pill:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 20px 40px -10px rgba(10, 25, 47, 0.08),
+        0 0 0 1px rgba(212, 175, 55, 0.2);
+}
+
+.pearl-trust-pill:hover::after {
+    left: 150%;
+}
+
+/*
+         =======================================
+           INDIVIDUAL TRUST METRICS
+         =======================================
+        */
+.trust-metric {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    position: relative;
+    z-index: 3;
+    transition: transform 0.4s ease;
+}
+
+.trust-metric:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* Vertical Divider between metrics (Desktop Only) */
+.trust-divider {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .trust-divider {
+        display: block;
+        width: 1px;
+        height: 50px;
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(10, 25, 47, 0.08),
+            transparent
+        );
+    }
+}
+
+/* Mobile Divider */
+@media (max-width: 1023px) {
+    .trust-divider-mobile {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(10, 25, 47, 0.05),
+            transparent
+        );
+    }
+}
+
+/* Icon Box */
+.metric-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1px solid rgba(10, 25, 47, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #d4af37;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    transition: all 0.4s ease;
+}
+
+.trust-metric:hover .metric-icon {
+    background: #0a192f;
+    color: #ffffff;
+    border-color: #0a192f;
+    box-shadow: 0 10px 20px rgba(10, 25, 47, 0.15);
+}
+
+/* Typography */
+.metric-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-value {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #0a192f;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #64748b;
+    margin-top: 0.25rem;
+}
+
+/* Star Rating Flex for Google */
+.star-rating {
+    display: flex;
+    gap: 2px;
+    margin-top: 0.25rem;
+}
+
+.star-rating svg {
+    width: 14px;
+    height: 14px;
+    color: #f59e0b;
+    /* Bright Star Gold */
+    fill: currentColor;
+}

@@ -1,0 +1,818 @@
+.hero-slider-bg {
+    background-color: #030712;
+    background-image: radial-gradient(
+        circle at center,
+        rgba(10, 25, 47, 0.8) 0%,
+        transparent 100%
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+/* Grid Overlay */
+.hero-slider-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* Slider Core Setup */
+.slide-item {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.8s ease-in-out,
+        visibility 0.8s ease-in-out;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.slide-item.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 20;
+}
+
+/* Animations for Active Slide Content */
+.slide-item.active .slide-text {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.slide-item.active .slide-image {
+    animation: zoomFadeIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomFadeIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Text Gradients */
+.text-gold-gradient {
+    background: linear-gradient(to right, #d4af37, #fdf0a6, #d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Custom Progress Indicators */
+.slider-progress-container {
+    display: flex;
+    gap: 12px;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+}
+
+.progress-bar {
+    width: 40px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: width 0.3s ease;
+}
+
+.progress-bar.active {
+    width: 80px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #d4af37;
+    border-radius: 4px;
+}
+
+.progress-bar.active .progress-fill {
+    animation: fillProgress 5s linear forwards;
+    /* 5s match with JS interval */
+}
+
+@keyframes fillProgress {
+    to {
+        width: 100%;
+    }
+}
+
+/* Buttons */
+.btn-slider-primary {
+    background: linear-gradient(to right, #d4af37, #b89025);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-slider-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* Visual Glass Frames */
+.glass-frame {
+    background: linear-gradient(
+        145deg,
+        rgba(10, 25, 47, 0.6),
+        rgba(3, 7, 18, 0.8)
+    );
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Stats Strip Premium Look */
+.stats-strip {
+    background: linear-gradient(90deg, #030712 0%, #0a192f 50%, #030712 100%);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-divider {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(212, 175, 55, 0.3),
+        transparent
+    );
+}
+
+/* About Section Premium Image Glow */
+.about-image-wrapper {
+    position: relative;
+    border-radius: 24px;
+    z-index: 1;
+}
+
+.about-image-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, #d4af37, transparent 40%, #0a192f);
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.about-pattern-bg {
+    background-color: #ffffff;
+    background-image: radial-gradient(#f3f4f6 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+/* Ultra Premium Bento Grid & Dark Aesthetic */
+.bento-section {
+    background-color: #030712; /* Deep dark tech background */
+    background-image:
+        radial-gradient(
+            circle at top right,
+            rgba(10, 25, 47, 0.8) 0%,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at bottom left,
+            rgba(212, 175, 55, 0.05) 0%,
+            transparent 40%
+        );
+    position: relative;
+}
+
+/* Abstract background grid for tech vibe */
+.bento-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+/* Premium Glass Card */
+.bento-card {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.01) 100%
+    );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 28px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Inner Glow & Border Animation */
+.bento-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    padding: 2px;
+    background: linear-gradient(
+        135deg,
+        rgba(212, 175, 55, 0.4),
+        transparent 40%,
+        rgba(59, 130, 246, 0.2)
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 30px 60px -15px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(212, 175, 55, 0.1);
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+}
+
+.bento-card:hover::before {
+    opacity: 1;
+}
+
+/* Gradient Text specifically for dark mode */
+.text-glow-gold {
+    background: linear-gradient(to right, #d4af37, #fdf0a6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Interactive Course Button */
+.bento-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 0.875rem 1.5rem;
+    border-radius: 16px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.bento-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, #d4af37, #b89025);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bento-card:hover .bento-btn {
+    border-color: transparent;
+    color: #030712;
+}
+
+.bento-card:hover .bento-btn::after {
+    opacity: 1;
+}
+
+/* Sleek Info Pills */
+.info-pill {
+    background: rgba(10, 25, 47, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Hall of Fame Premium CSS */
+/* Hall of Fame Premium Light CSS */
+.fame-section-light {
+    background-color: #f8fafc; /* Very soft light gray/blue */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Abstract Soft Light Background Pattern */
+.fame-section-light::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* Soft Radial Gold Spotlight */
+.fame-section-light::after {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(
+        circle,
+        rgba(212, 175, 55, 0.08) 0%,
+        transparent 60%
+    );
+    pointer-events: none;
+}
+
+/* Infinite Marquee Setup */
+.marquee-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    overflow: hidden;
+    padding: 2rem 0;
+    z-index: 10;
+}
+
+/* Edge Fade Masks for Premium Light Look */
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #f8fafc 10%, transparent);
+}
+
+.marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #f8fafc 10%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+}
+
+/* Animations */
+.scroll-left {
+    animation: scrollLeft 40s linear infinite;
+}
+.scroll-right {
+    animation: scrollRight 40s linear infinite;
+}
+
+/* Pause on hover */
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+@keyframes scrollRight {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Ultra Premium Light Card */
+.topper-card-light {
+    width: 330px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 24px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    cursor: default;
+}
+
+/* Hover Elevation */
+.topper-card-light:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 20px 40px -10px rgba(10, 25, 47, 0.12),
+        0 0 0 1px rgba(212, 175, 55, 0.4);
+}
+
+/* Student Image Avatar (Premium Ring) */
+.topper-avatar {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, #d4af37, #fdf0a6, #d4af37);
+    flex-shrink: 0;
+}
+
+.topper-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff; /* Matches card background */
+}
+
+/* Score Badge (Dark contrast on light card) */
+.score-badge {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background: #0a192f;
+    border: 2px solid #ffffff;
+    color: #d4af37;
+    font-weight: 900;
+    font-size: 0.8rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(10, 25, 47, 0.2);
+}
+
+/* Light Theme Button */
+.btn-light-outline {
+    color: #0a192f;
+    border: 2px solid #e2e8f0;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+.btn-light-outline:hover {
+    background: #0a192f;
+    color: #ffffff;
+    border-color: #0a192f;
+    box-shadow: 0 10px 20px rgba(10, 25, 47, 0.15);
+}
+
+/* USPs Premium Section Background */
+.usps-section-bg {
+    background-color: #030712;
+    background-image:
+        radial-gradient(
+            circle at top left,
+            rgba(212, 175, 55, 0.05) 0%,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(10, 25, 47, 0.5) 0%,
+            transparent 40%
+        );
+    position: relative;
+    overflow: hidden;
+}
+
+/* Abstract Tech Lines Background */
+.usps-section-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Premium Glowing USP Card */
+.usp-card {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.01)
+    );
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Animated Gradient Border (The Magic Wow Factor) */
+.usp-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px; /* Border thickness */
+    background: linear-gradient(135deg, #d4af37, #3b82f6, transparent, #d4af37);
+    background-size: 300% 300%;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: gradientBorderMove 4s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientBorderMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Hover States */
+.usp-card:hover {
+    transform: translateY(-10px);
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.02)
+    );
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.usp-card:hover::before {
+    opacity: 1;
+}
+
+/* Icon Container Animation */
+.usp-icon-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    background: rgba(10, 25, 47, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.usp-icon-box::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 24px;
+    background: inherit;
+    filter: blur(12px);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+}
+
+.usp-card:hover .usp-icon-box {
+    transform: scale(1.1) rotate(5deg);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+.usp-card:hover .usp-icon-box::after {
+    opacity: 0.6;
+}
+
+/* Icon Colors */
+.usp-card:hover .icon-gold {
+    color: #d4af37;
+}
+.usp-card:hover .icon-blue {
+    color: #3b82f6;
+}
+.usp-card:hover .icon-green {
+    color: #10b981;
+}
+.usp-card:hover .icon-purple {
+    color: #8b5cf6;
+}
+
+/* Title Gradient */
+.text-glow-white {
+    transition: all 0.3s ease;
+}
+.usp-card:hover .text-glow-white {
+    background: linear-gradient(to right, #ffffff, #d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Premium Light Background with Subtle Mesh */
+/* Ultra Premium Light Theme Settings */
+.premium-reviews-bg {
+    background-color: #fafbfc; /* Extremely soft, airy white/gray */
+    background-image:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(212, 175, 55, 0.03) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(10, 25, 47, 0.03) 0%,
+            transparent 50%
+        );
+    position: relative;
+    overflow: hidden;
+}
+
+/* Staggered Grid Layout for High-End Aesthetic */
+.staggered-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .staggered-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .staggered-col-2 {
+        margin-top: 3rem;
+    } /* Pushes second column down */
+}
+
+@media (min-width: 1024px) {
+    .staggered-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .staggered-col-2 {
+        margin-top: 4rem;
+    }
+    .staggered-col-3 {
+        margin-top: 1rem;
+    }
+}
+
+/* The "Focus" Interaction (WOW Factor) */
+.reviews-container:hover .review-glass-card:not(:hover) {
+    filter: grayscale(80%) blur(2px);
+    opacity: 0.4;
+    transform: scale(0.98);
+}
+
+/* Ultra Premium Review Card */
+.review-glass-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2.5rem;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(10, 25, 47, 0.03);
+    z-index: 1;
+    cursor: default;
+}
+
+/* Card Hover Glow */
+.review-glass-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow:
+        0 30px 60px -15px rgba(10, 25, 47, 0.12),
+        0 0 0 1px rgba(212, 175, 55, 0.3);
+    z-index: 10;
+}
+
+/* Large Quote Watermark Background */
+.review-glass-card::after {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-family: Georgia, serif;
+    font-size: 180px;
+    color: rgba(10, 25, 47, 0.02);
+    line-height: 1;
+    z-index: -1;
+    transition:
+        color 0.5s ease,
+        transform 0.5s ease;
+}
+
+.review-glass-card:hover::after {
+    color: rgba(212, 175, 55, 0.05);
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Student Avatar */
+.avatar-ring {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4af37, #fdf0a6);
+    padding: 2px;
+}
+.avatar-ring img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+}
+
+/* Verified Badge */
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Google Icon Small */
+.google-icon-small {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+.review-glass-card:hover .google-icon-small {
+    opacity: 1;
+}
